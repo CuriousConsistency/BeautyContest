@@ -1,0 +1,1 @@
+This game is called BeautyContest, based on https://aliceinborderland.fandom.com/wiki/King_of_Diamonds.
