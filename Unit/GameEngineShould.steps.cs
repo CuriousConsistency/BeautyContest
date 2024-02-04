@@ -63,6 +63,11 @@ public partial class GameEngineShould
         comparison = () => { gameEngine.Play([80,80,80,80]); };
     }     
     
+    private void playing_with_out_of_bounds_scores(params int[] scores)
+    {
+        comparison = () => { gameEngine.Play(scores); };
+    }     
+    
     private void playing_with_four_scores()
     {
         gameEngine.Play([80, 80, 80, 80]);
@@ -81,6 +86,11 @@ public partial class GameEngineShould
     private void exception_thrown_for_incorrect_number_of_scores()
     {
         comparison.Should().Throw<IncorrectNumberOfScoresException>();
+    }    
+    
+    private void exception_thrown_for_out_of_bounds_scores()
+    {
+        comparison.Should().Throw<ScoreOutOfBoundsException>();
     }
 
     private void five_players_are_returned()

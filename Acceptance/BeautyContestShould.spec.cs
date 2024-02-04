@@ -6,7 +6,7 @@ using TestFramework;
 [TestFixture]
 public partial class BeautyContestShould: Specification
 {
-    [TestCase]
+    [Test]
     public void LetChishiyaWinAgainstTheKingOfDiamondsMasterKuzuryu()
     {
         Given(a_beauty_contest_with_Chishiya_Daimon_Yashige_Asuma_and_Kuzuryu);

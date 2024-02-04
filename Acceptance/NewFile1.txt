@@ -1,2 +1,0 @@
-need to make sure all rule tests run tests for lower rule sets.
-might want to make tests in one test file available for another?

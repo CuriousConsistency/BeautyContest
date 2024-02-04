@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 public partial class FirstRuleSetShould : RuleSetSpecification
 {
-    [TestCase]
+    [Test]
     public void NotRemovePointForWinningPlayer()
     {
         Given(a_game_with_five_players_and_rule_set_one);
@@ -12,7 +12,7 @@ public partial class FirstRuleSetShould : RuleSetSpecification
         Then(winning_player_points_should_be_zero);
     }
 
-    [TestCase]
+    [Test]
     public void RemoveOnePointForLosingPlayers()
     {
         Given(a_game_with_five_players_and_rule_set_one);
@@ -20,7 +20,7 @@ public partial class FirstRuleSetShould : RuleSetSpecification
         Then(player_one_loses_no_points_and_other_players_lose_points);
     }    
     
-    [TestCase]
+    [Test]
     public void NotRemovePointsWhenAllPlayersDraw()
     {
         Given(a_game_with_five_players_and_rule_set_one);
@@ -28,7 +28,7 @@ public partial class FirstRuleSetShould : RuleSetSpecification
         Then(no_player_loses_points);
     }    
     
-    [TestCase]
+    [Test]
     public void RemoveTwoPointsForSameLosingPlayerInTwoPlays()
     {
         Given(a_game_with_five_players_and_rule_set_one);
@@ -37,7 +37,7 @@ public partial class FirstRuleSetShould : RuleSetSpecification
         Then(one_player_loses_two_points);
     }
 
-    [TestCase]
+    [Test]
     public void RankHigherScoringPlayerFirstIfTwoPlayersHaveTheSameDifference()
     {
         Given(a_game_with_five_players_and_rule_set_one);

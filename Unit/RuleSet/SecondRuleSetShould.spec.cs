@@ -1,11 +1,10 @@
 namespace Unit.RuleSet;
 
 using NUnit.Framework;
-using TestFramework;
 
 public partial class SecondRuleSetShould : RuleSetSpecification
 {
-    [TestCase]
+    [Test]
     public void RemovePointsForPlayersWhoPickMatchingNumbers()
     {
         Given(a_game_with_four_players_and_rule_set_two);
@@ -13,7 +12,7 @@ public partial class SecondRuleSetShould : RuleSetSpecification
         Then(players_with_matching_numbers_lose_a_point);
     }
     
-    [TestCase]
+    [Test]
     public void NotRemovePointForWinningPlayer()
     {
         Given(a_game_with_four_players_and_rule_set_two);
@@ -21,7 +20,7 @@ public partial class SecondRuleSetShould : RuleSetSpecification
         Then(winning_player_points_should_be_zero);
     }
     
-    [TestCase]
+    [Test]
     public void RemoveOnePointForLosingPlayers()
     {
         Given(a_game_with_four_players_and_rule_set_two);
@@ -29,7 +28,7 @@ public partial class SecondRuleSetShould : RuleSetSpecification
         Then(player_one_loses_no_points_and_other_players_lose_points);
     }
     
-    [TestCase]
+    [Test]
     public void RemoveTwoPointsForSameLosingPlayersInTwoPlays()
     {
         Given(a_game_with_four_players_and_rule_set_two);

@@ -22,4 +22,16 @@ public partial class FourthRuleSetShould
         players[0].Points.Should().Be(0);
         players[1].Points.Should().Be(-1);
     }
+
+    private void player_two_loses_double_points()
+    {
+        players[0].Points.Should().Be(0);
+        players[1].Points.Should().Be(-2);
+    }    
+    
+    private void player_two_loses_one_point()
+    {
+        players[0].Points.Should().Be(0);
+        players[1].Points.Should().Be(-1);
+    }
 }

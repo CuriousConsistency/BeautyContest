@@ -7,6 +7,12 @@ public class SecondRuleSet : FirstRuleSet
     public override void Play(int[] scores, List<Player> players)
     {
         SetScores(scores, players);
+        if (PointsAreDeductedForMatchingScores(players)) return;
+        base.Play(scores,players);
+    }
+
+    private static bool PointsAreDeductedForMatchingScores(List<Player> players)
+    {
         var matchingPlayerGroups = players.GroupBy(p => p.Score).Where(g => g.Count() > 1).ToList();
         if (matchingPlayerGroups.Count > 0)
         {
@@ -17,9 +23,10 @@ public class SecondRuleSet : FirstRuleSet
                     matchingPlayer.DeductPoint();
                 }
             }
-
-            return;
+            ResetChecks();
+            return true;
         }
-        base.Play(scores,players);
+
+        return false;
     }
 }

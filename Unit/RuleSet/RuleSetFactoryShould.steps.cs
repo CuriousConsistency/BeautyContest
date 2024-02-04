@@ -9,7 +9,7 @@ public partial class RuleSetFactoryShould
     private IAmARuleSetFactory ruleSetFactory = null!;
     private IAmARuleSet ruleSet = null!;
     
-    private void a_rule_Set_factory()
+    private void a_rule_set_factory()
     {
         ruleSetFactory = new RuleSetFactory();
     }

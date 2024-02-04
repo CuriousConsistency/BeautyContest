@@ -5,7 +5,7 @@ using TestFramework;
 
 public partial class ThirdRuleSetShould : RuleSetSpecification
 {
-    [TestCase]
+    [Test]
     public void DoubleLoserPenaltyIfPlayerPicksExactCorrectNumber()
     {
         Given(a_game_with_three_players_and_rule_set_three);
@@ -13,7 +13,7 @@ public partial class ThirdRuleSetShould : RuleSetSpecification
         Then(players_without_exact_correct_number_lose_two_points);
     }
     
-    [TestCase]
+    [Test]
     public void ResetLoserPenaltyOnNextTurn()
     {
         Given(a_game_with_three_players_and_rule_set_three);

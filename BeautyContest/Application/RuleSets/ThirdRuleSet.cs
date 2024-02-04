@@ -10,11 +10,15 @@ public class ThirdRuleSet : SecondRuleSet
         SetScores(scores,players);
         SetDifferences(scores, players);
         RankPlayers(players);
-        
+        DoublePenaltyIfOnePlayerScoredExactGoal(players);
+        base.Play(scores,players);
+    }
+
+    private void DoublePenaltyIfOnePlayerScoredExactGoal(List<Player> players)
+    {
         if (players.Any(p => p.Score == Goal))
         {
             Penalty = 2;
         }
-        base.Play(scores,players);
     }
 }

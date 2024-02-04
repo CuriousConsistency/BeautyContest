@@ -5,7 +5,7 @@ using TestFramework;
 
 public partial class GameEngineShould : Specification
 {
-    [TestCase]
+    [Test]
     public void ThrowExceptionForIncorrectNumberOfScores()
     {
         Given(a_game_with_five_alive_players);
@@ -13,7 +13,17 @@ public partial class GameEngineShould : Specification
         Then(exception_thrown_for_incorrect_number_of_scores);
     }
 
-    [TestCase]
+    [Test]
+    [TestCase(-1,5,6,7,10)]
+    [TestCase(1,5,6,7,101)]
+    public void ThrowExceptionForOutOfBoundsScores(params int[] scores)
+    {
+        Given(a_game_with_five_alive_players);
+        When(() => playing_with_out_of_bounds_scores(scores));
+        Then(exception_thrown_for_out_of_bounds_scores);
+    }
+
+    [Test]
     public void ReturnFivePlayers()
     {
         Given(a_game_with_five_alive_players);
@@ -21,7 +31,7 @@ public partial class GameEngineShould : Specification
         Then(five_players_are_returned);
     }
 
-    [TestCase]
+    [Test]
     public void PlayFirstRuleSetWhenNoPlayersHaveLost()
     {
         Given(a_game_with_five_alive_players);
@@ -29,7 +39,7 @@ public partial class GameEngineShould : Specification
         Then(ruleset_one_is_played);
     }
     
-    [TestCase]
+    [Test]
     public void KillPlayerWhenTenPointsAreLost()
     {
         Given(a_game_with_five_alive_players);
@@ -37,7 +47,7 @@ public partial class GameEngineShould : Specification
         Then(a_player_loses_the_game);
     }
     
-    [TestCase]
+    [Test]
     public void NotRequireScoreForDeadPlayer()
     {
         Given(a_game_with_four_alive_players);
@@ -45,7 +55,7 @@ public partial class GameEngineShould : Specification
         Then(exception_thrown_for_incorrect_number_of_scores);
     }
     
-    [TestCase]
+    [Test]
     public void PlaySecondRuleSetWhenOnePlayerHasLost()
     {
         Given(a_game_with_four_alive_players);
@@ -53,7 +63,7 @@ public partial class GameEngineShould : Specification
         Then(ruleset_two_is_played);
     }    
     
-    [TestCase]
+    [Test]
     public void PlayThirdRuleSetWhenTwoPlayersHaveLost()
     {
         Given(a_game_with_three_alive_players);
@@ -61,7 +71,7 @@ public partial class GameEngineShould : Specification
         Then(ruleset_three_is_played);
     }    
     
-    [TestCase]
+    [Test]
     public void PlayFourthRuleSetWhenThreePlayersHaveLost()
     {
         Given(a_game_with_two_alive_players);

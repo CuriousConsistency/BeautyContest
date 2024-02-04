@@ -7,10 +7,10 @@ using NSubstitute;
 
     internal class FakeRuleSetFactory : IAmARuleSetFactory
     {
-        public IAmARuleSet FirstRuleSet;
-        public IAmARuleSet SecondRuleSet;
-        public IAmARuleSet ThirdRuleSet;
-        public IAmARuleSet FourthRuleSet;
+        public readonly IAmARuleSet FirstRuleSet;
+        public readonly IAmARuleSet SecondRuleSet;
+        public readonly IAmARuleSet ThirdRuleSet;
+        public readonly IAmARuleSet FourthRuleSet;
         public List<Player> Players = null!;
 
         public FakeRuleSetFactory()
@@ -45,18 +45,13 @@ using NSubstitute;
 
         public IAmARuleSet GetRule(BeautyContest.Application.RuleSets.RuleSet ruleSet)
         {
-            switch (ruleSet)
+            return ruleSet switch
             {
-                case BeautyContest.Application.RuleSets.RuleSet.One:
-                    return FirstRuleSet;
-                case BeautyContest.Application.RuleSets.RuleSet.Two:
-                    return SecondRuleSet;
-                case BeautyContest.Application.RuleSets.RuleSet.Three:
-                    return ThirdRuleSet;
-                case BeautyContest.Application.RuleSets.RuleSet.Four:
-                    return FourthRuleSet;
-                default:
-                    throw new ArgumentException();
-            }
+                BeautyContest.Application.RuleSets.RuleSet.One => FirstRuleSet,
+                BeautyContest.Application.RuleSets.RuleSet.Two => SecondRuleSet,
+                BeautyContest.Application.RuleSets.RuleSet.Three => ThirdRuleSet,
+                BeautyContest.Application.RuleSets.RuleSet.Four => FourthRuleSet,
+                _ => throw new ArgumentException()
+            };
         }
     }

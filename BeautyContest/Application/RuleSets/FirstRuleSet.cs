@@ -10,5 +10,6 @@ public class FirstRuleSet : BaseRuleSet
         SetDifferences(scores, players);
         RankPlayers(players);
         DeductPoints(players);
+        base.Play(scores,players);
     }
 }
