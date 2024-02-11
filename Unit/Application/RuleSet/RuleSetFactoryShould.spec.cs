@@ -1,4 +1,4 @@
-namespace Unit.RuleSet;
+namespace Unit.Application.RuleSet;
 
 using NUnit.Framework;
 using TestFramework;

@@ -1,11 +1,11 @@
-namespace Unit;
+namespace Unit.Application;
 
 using BeautyContest.Application.RuleSets;
 using BeautyContest.Application.RuleSets.Factory;
 using BeautyContest.Domain;
 using NSubstitute;
 
-    internal class FakeRuleSetFactory : IAmARuleSetFactory
+internal class FakeRuleSetFactory : IAmARuleSetFactory
     {
         public readonly IAmARuleSet FirstRuleSet;
         public readonly IAmARuleSet SecondRuleSet;
@@ -43,7 +43,7 @@ using NSubstitute;
             });
         }
 
-        public IAmARuleSet GetRule(BeautyContest.Application.RuleSets.RuleSet ruleSet)
+        public IAmARuleSet GetRuleSet(BeautyContest.Application.RuleSets.RuleSet ruleSet)
         {
             return ruleSet switch
             {

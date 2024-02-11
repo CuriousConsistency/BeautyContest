@@ -4,5 +4,5 @@ using RuleSets;
 
 public interface IAmARuleSetFactory
 {
-    public IAmARuleSet GetRule(RuleSet ruleSet);
+    public IAmARuleSet GetRuleSet(RuleSet ruleSet);
 }

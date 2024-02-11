@@ -1,5 +1,6 @@
 namespace BeautyContest.Application;
 
+using System.Collections.ObjectModel;
 using Domain;
 using Domain.Exceptions;
 using System.Linq;
@@ -33,17 +34,16 @@ public class GameEngine
         var numberOfPlayersAlive = players.Count(p => p.IsAlive);
         ValidateScores(scores, numberOfPlayersAlive);
 
-        ruleSetFactory.GetRule((RuleSet)(NumberOfPlayers - numberOfPlayersAlive + 1)).Play(scores, players.Where(p => p.IsAlive).ToList());
+        ruleSetFactory.GetRuleSet((RuleSet)(NumberOfPlayers - numberOfPlayersAlive + 1)).Play(scores, players.Where(p => p.IsAlive).ToList());
     }
 
     private static void ValidateScores(int[] scores, int numberOfPlayersAlive)
     {
         if (scores.Length != numberOfPlayersAlive) throw new IncorrectNumberOfScoresException();
-        if (scores.Any(s => s is < LowerBound or > UpperBound)) throw new ScoreOutOfBoundsException();
     }
 
-    public List<Player> GetPlayers()
+    public ReadOnlyCollection<Player> GetPlayers()
     {
-        return players;
+        return players.AsReadOnly();
     }
 }

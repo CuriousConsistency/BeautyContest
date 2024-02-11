@@ -1,4 +1,4 @@
-﻿namespace Unit;
+﻿namespace Unit.Application;
 
 using NUnit.Framework;
 using TestFramework;
@@ -11,16 +11,6 @@ public partial class GameEngineShould : Specification
         Given(a_game_with_five_alive_players);
         When(playing_incorrectly_with_four_scores);
         Then(exception_thrown_for_incorrect_number_of_scores);
-    }
-
-    [Test]
-    [TestCase(-1,5,6,7,10)]
-    [TestCase(1,5,6,7,101)]
-    public void ThrowExceptionForOutOfBoundsScores(params int[] scores)
-    {
-        Given(a_game_with_five_alive_players);
-        When(() => playing_with_out_of_bounds_scores(scores));
-        Then(exception_thrown_for_out_of_bounds_scores);
     }
 
     [Test]

@@ -4,8 +4,7 @@ public class Player
 {
     public int Points { get; private set; }
     internal uint Difference { get; private set; }
-    
-    internal int Score { get; set; }
+    internal Score Score { get; set; }
     internal int Rank { get; set; }
 
     internal void SetDifference(int goal)

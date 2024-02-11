@@ -2,25 +2,25 @@
 
 public class Specification
 {
-    protected delegate void ParameterlessTestAction();
+     protected static void Given(Action testAction)
+     {
+         testAction.Invoke();
+     }    
 
-    protected static void Given(ParameterlessTestAction testAction)
+    protected static void And(Action testAction)
     {
         testAction.Invoke();
-    }
+    }    
+    
 
-    protected static void And(ParameterlessTestAction testAction)
+    protected static void When(Action testAction)
     {
         testAction.Invoke();
-    }
+    }    
+    
 
-    protected static void When(ParameterlessTestAction testAction)
+    protected static void Then(Action testAction)
     {
         testAction.Invoke();
-    }
-
-    protected static void Then(ParameterlessTestAction testAction)
-    {
-        testAction.Invoke();
-    }
+    }    
 }

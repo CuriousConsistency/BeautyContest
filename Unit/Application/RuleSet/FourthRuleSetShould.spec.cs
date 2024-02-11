@@ -1,4 +1,4 @@
-namespace Unit.RuleSet;
+namespace Unit.Application.RuleSet;
 
 using NUnit.Framework;
 
@@ -8,7 +8,7 @@ public partial class FourthRuleSetShould : RuleSetSpecification
     public void DeclareWinnerForPlayerWhoPicksOneHundredWhenAnotherPlayerPicksZero()
     {
         Given(a_game_with_two_players_and_rule_set_four);
-        When(() => playing_the_game(100,0));
+        When(playing_the_game(100,0));
         Then(one_player_loses);
     }
 
@@ -16,7 +16,7 @@ public partial class FourthRuleSetShould : RuleSetSpecification
     public void PlayThirdRuleSetIfNobodyChoosesZero()
     {
         Given(a_game_with_two_players_and_rule_set_four);
-        When(() => playing_the_game(1,2));
+        When(playing_the_game(1,2));
         Then(player_two_loses_double_points);
     }    
     
@@ -24,7 +24,7 @@ public partial class FourthRuleSetShould : RuleSetSpecification
     public void PlayThirdRuleSetIfAPlayerChoosesZeroButNobodyChoosesOneHundred()
     {
         Given(a_game_with_two_players_and_rule_set_four);
-        When(() => playing_the_game(0,99));
+        When(playing_the_game(0,99));
         Then(player_two_loses_one_point);
     }
 }

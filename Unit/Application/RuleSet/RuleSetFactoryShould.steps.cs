@@ -1,4 +1,4 @@
-namespace Unit.RuleSet;
+namespace Unit.Application.RuleSet;
 
 using BeautyContest.Application.RuleSets;
 using BeautyContest.Application.RuleSets.Factory;
@@ -16,22 +16,22 @@ public partial class RuleSetFactoryShould
 
     private void requesting_first_rule_set()
     {
-        ruleSet = ruleSetFactory.GetRule(RuleSet.One);
+        ruleSet = ruleSetFactory.GetRuleSet(RuleSet.One);
     }    
     
     private void requesting_second_rule_set()
     {
-        ruleSet = ruleSetFactory.GetRule(RuleSet.Two);
+        ruleSet = ruleSetFactory.GetRuleSet(RuleSet.Two);
     }    
     
     private void requesting_third_rule_set()
     {
-        ruleSet = ruleSetFactory.GetRule(RuleSet.Three);
+        ruleSet = ruleSetFactory.GetRuleSet(RuleSet.Three);
     }    
     
     private void requesting_fourth_rule_set()
     {
-        ruleSet = ruleSetFactory.GetRule(RuleSet.Four);
+        ruleSet = ruleSetFactory.GetRuleSet(RuleSet.Four);
     }
 
     private void first_rule_set_is_returned()

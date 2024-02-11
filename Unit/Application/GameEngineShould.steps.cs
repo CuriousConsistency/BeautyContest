@@ -1,4 +1,4 @@
-﻿namespace Unit;
+﻿namespace Unit.Application;
 
 using BeautyContest.Application;
 using BeautyContest.Domain;
@@ -63,9 +63,12 @@ public partial class GameEngineShould
         comparison = () => { gameEngine.Play([80,80,80,80]); };
     }     
     
-    private void playing_with_out_of_bounds_scores(params int[] scores)
+    private Action playing_with_out_of_bounds_scores(params int[] scores)
     {
-        comparison = () => { gameEngine.Play(scores); };
+        return () =>
+        {
+            comparison = () => { gameEngine.Play(scores); };
+        };
     }     
     
     private void playing_with_four_scores()
@@ -88,11 +91,6 @@ public partial class GameEngineShould
         comparison.Should().Throw<IncorrectNumberOfScoresException>();
     }    
     
-    private void exception_thrown_for_out_of_bounds_scores()
-    {
-        comparison.Should().Throw<ScoreOutOfBoundsException>();
-    }
-
     private void five_players_are_returned()
     {
         gameEngine.GetPlayers().Count.Should().Be(5);

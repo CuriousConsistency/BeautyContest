@@ -9,7 +9,7 @@ public class RuleSetFactory : IAmARuleSetFactory
     private IAmARuleSet? threeRuleSet;
     private IAmARuleSet? fourthRuleSet;
     
-    public IAmARuleSet GetRule(RuleSet ruleSet)
+    public IAmARuleSet GetRuleSet(RuleSet ruleSet)
     {
         return ruleSet switch
         {
